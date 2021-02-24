@@ -2096,5 +2096,6 @@
         <org.wso2.orbit.atlassian.oai.version>2.12.1.wso2v1</org.wso2.orbit.atlassian.oai.version>
         <maven.spotbugsplugin.exclude.file>spotbugs-exclude.xml</maven.spotbugsplugin.exclude.file>
         <skip.aspectj>false</skip.aspectj>
+        <npm.skip>false</npm.skip>
     </properties>
 </project>

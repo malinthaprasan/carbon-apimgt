@@ -234,6 +234,7 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <skip>${npm.skip}</skip>
                     <workingDirectory>${npm.working.dir}</workingDirectory>
                 </configuration>
             </plugin>
