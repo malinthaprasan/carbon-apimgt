@@ -12,15 +12,17 @@ jobs:
       matrix:
         include:
         - id: 1
-          segment: apim-integration-tests-api-common,apim-integration-tests-api-change-endpoint,apim-integration-tests-api-product,apim-integration-tests-api-lifecycle,apim-email-secondary-userstore-tests
+          segment: apim-integration-tests-api-common,apim-integration-tests-api-change-endpoint,apim-integration-tests-api-product #,apim-integration-tests-api-lifecycle #,apim-email-secondary-userstore-tests
         - id: 2
-          segment: apim-CORS-tests,apim-integration-tests-samples,apim-publisher-tests,apim-store-tests,apim-integration-tests-graphql,admin-rest-api-tests
+          segment: apim-CORS-tests,apim-integration-tests-samples,apim-publisher-tests,apim-store-tests #,apim-integration-tests-graphql #,admin-rest-api-tests
         - id: 3
-          segment: rest-api-tests,apim-mediation-tests,apim-integration-tests-without-restarts,apim-integration-tests-application-sharing,apim-JWT-integration-tests,apim-urlsafe-JWT-integration-tests
+          segment: rest-api-tests,apim-mediation-tests,apim-integration-tests-without-restarts,apim-integration-tests-application-sharing #,apim-JWT-integration-tests #,apim-urlsafe-JWT-integration-tests
         - id: 4
-          segment: apim-integration-tests-endpoint-security,apim-integration-tests-external-idp,apim-integration-emailusername-login,apim-integration-tests-workflow
-#        - id: 5
-#          segment: apim-integration-tests-api-product,apim-integration-tests-graphql
+          segment: apim-integration-tests-endpoint-security,apim-integration-tests-external-idp #,apim-integration-emailusername-login #,apim-integration-tests-workflow
+        - id: 5
+          segment: apim-email-secondary-userstore-tests,admin-rest-api-tests,apim-urlsafe-JWT-integration-tests,apim-integration-tests-workflow
+        - id: 6
+          segment: apim-integration-tests-api-lifecycle,apim-integration-tests-graphql,apim-JWT-integration-tests,apim-integration-emailusername-login
       fail-fast: false
     steps:
     - name: Checkout master
@@ -52,7 +54,8 @@ jobs:
       env:
         PRODUCT_APIM_TESTS: ${{ matrix.segment }}
     - name: Show testing logs
-      run: tail -n 500 ../product-apim/modules/integration/tests-integration/tests-backend/target/logs/automation.log
+      run: tail -n 250 ../product-apim/modules/integration/tests-integration/tests-backend/target/logs/automation.log
+      if: always()
     - name: Upload integration test coverage to Codecov
       uses: codecov/codecov-action@v1.2.1
       if: always()
