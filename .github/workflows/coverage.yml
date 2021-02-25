@@ -16,6 +16,7 @@ jobs:
         - segment: rest-api-tests,apim-mediation-tests,apim-integration-tests-without-restarts,apim-integration-tests-application-sharing,apim-JWT-integration-tests,apim-urlsafe-JWT-integration-tests
         - segment: apim-integration-tests-endpoint-security,apim-integration-tests-external-idp,apim-integration-emailusername-login,apim-integration-tests-workflow
         - segment: apim-integration-tests-api-product,apim-integration-tests-graphql
+      fail-fast: false
     steps:
     - name: Checkout master
       uses: actions/checkout@v1
