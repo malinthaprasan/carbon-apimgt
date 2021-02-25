@@ -55,6 +55,7 @@ jobs:
       run: tail -n 500 ../product-apim/modules/integration/tests-integration/tests-backend/target/logs/automation.log
     - name: Upload integration test coverage to Codecov
       uses: codecov/codecov-action@v1.2.1
+      if: always()
       with:
         flags: integration_tests_${{ matrix.id }}
         directory: ../product-apim/

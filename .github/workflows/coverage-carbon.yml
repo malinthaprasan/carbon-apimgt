@@ -25,5 +25,6 @@ jobs:
         run: mvn clean install --file pom.xml -Dskip.aspectj=true -Dnpm.skip=true
       - name: Upload unit test coverage to Codecov
         uses: codecov/codecov-action@v1.2.1
+        if: always()
         with:
           flags: unit_tests
