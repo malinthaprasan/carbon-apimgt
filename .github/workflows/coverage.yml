@@ -60,7 +60,7 @@ jobs:
       uses: codecov/codecov-action@v1.2.1
       if: always()
       with:
-        flags: integration_tests_${{ matrix.id }}
+        flags: integration_tests
         directory: ../product-apim/
 
 #  build:
