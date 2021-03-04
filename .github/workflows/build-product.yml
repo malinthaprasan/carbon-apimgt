@@ -15,9 +15,9 @@ jobs:
       matrix:
         include:
           - id: 1
-            segment: apim-integration-tests-api-common, apim-integration-tests-api-change-endpoint, apim-integration-tests-api-product, apim-integration-tests-api-lifecycle, apim-email-secondary-userstore-tests, apim-CORS-tests, apim-integration-tests-samples, apim-publisher-tests, apim-store-tests, apim-integration-tests-graphql, admin-rest-api-tests
+            segment: apim-integration-tests-api-common, apim-integration-tests-api-change-endpoint, apim-integration-tests-api-product, apim-integration-tests-api-lifecycle, apim-email-secondary-userstore-tests, apim-CORS-tests, apim-integration-tests-samples, apim-publisher-tests, apim-store-tests, apim-integration-tests-graphql, admin-rest-api-tests, rest-api-tests, apim-mediation-tests, apim-integration-tests-without-restarts
           - id: 2
-            segment: rest-api-tests, apim-mediation-tests, apim-integration-tests-without-restarts, apim-integration-tests-application-sharing, apim-JWT-integration-tests, apim-urlsafe-JWT-integration-tests, apim-integration-tests-endpoint-security, apim-integration-tests-external-idp, apim-integration-emailusername-login, apim-integration-tests-workflow
+            segment: apim-integration-tests-application-sharing, apim-JWT-integration-tests, apim-urlsafe-JWT-integration-tests, apim-integration-tests-endpoint-security, apim-integration-tests-external-idp, apim-integration-emailusername-login, apim-integration-tests-workflow
       fail-fast: false
     steps:
     - name: Checkout master
@@ -35,8 +35,8 @@ jobs:
         path: ~/.m2
         key: ${{ runner.os }}-m2
         restore-keys: ${{ runner.os }}-m2
-    - name: Build carbon-apimgt without tests
-      run: mvn clean install --file pom.xml -Dmaven.test.skip=true
+    - name: Build carbon-apimgt without tests, skip AspectJ
+      run: mvn clean install --file pom.xml -Dmaven.test.skip=true -Dskip.aspectj=true
     - name: Get carbon.apimgt.version
       run: mvn help:evaluate -Dexpression=project.version -q -DforceStdout > ../CARBON_APIMGT_VERSION_FILE
     - name: Print carbon.apimgt.version
