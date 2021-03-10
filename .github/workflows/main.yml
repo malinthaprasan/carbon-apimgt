@@ -31,7 +31,6 @@ jobs:
           key: ${{ runner.os }}-m2
           restore-keys: ${{ runner.os }}-m2
       - name: Build carbon-apimgt with Tests, skipping AspectJ
-        continue-on-error: true
         run: mvn clean install --file pom.xml -Dskip.aspectj=true
 
   build-product:
