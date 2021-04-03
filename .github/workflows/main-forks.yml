@@ -81,7 +81,7 @@ jobs:
         run: mvn clean install -Dcarbon.apimgt.version=$(cat ../CARBON_APIMGT_VERSION_FILE) -fae --file product-apim/pom.xml
         env:
 #          PRODUCT_APIM_TESTS: ${{ matrix.segment }}
-          PRODUCT_APIM_TESTS_CLASSES: ${{ matrix.classes }}
+          PRODUCT_APIM_TEST_CLASSES: ${{ matrix.classes }}
       - name: Publish Test Report
         if: always()
         uses: malinthaprasan/action-surefire-report@v1
