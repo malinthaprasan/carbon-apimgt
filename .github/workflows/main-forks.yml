@@ -99,7 +99,10 @@ jobs:
 #            TEST-TestSuite_${{ matrix.id }}.xml
 #          if-no-files-found: warn
       - name: Run Failed Tests
+        id: failedParser
         working-directory: .github/scripts/testngFailedParser
         run: |
           npm install
           node testngFailedParser.js
+      - name: Print failed
+        run: echo ${{steps.failedParser.outputs.failedTests}}

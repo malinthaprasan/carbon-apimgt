@@ -3,6 +3,7 @@ var fs = require('fs'),
  
 var parser = new xml2js.Parser();
 
+console.log("1234")
 console.log("::set-output name=failedTests::hello,123")
 
 //fs.readFile('product-apim/modules/integration/tests-integration/tests-backend/target/surefire-reports/testng-failed.xml', function(err, data) {
