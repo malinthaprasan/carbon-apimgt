@@ -174,7 +174,7 @@
   "GatewayEnvironments.AddEditGWEnvironment.form.displayName": "Display Name",
   "GatewayEnvironments.AddEditGWEnvironment.form.displayName.help": "Display name of the Gateway Environment",
   "GatewayEnvironments.AddEditGWEnvironment.form.environment.name.empty": "Name is Empty",
-  "GatewayEnvironments.AddEditGWEnvironment.form.environment.name.invalid": "Name field contains special characters",
+  "GatewayEnvironments.AddEditGWEnvironment.form.environment.name.invalid": "Name must not contain special characters or spaces",
   "GatewayEnvironments.AddEditGWEnvironment.form.info.add.successful": "Gateway Environment added successfully",
   "GatewayEnvironments.AddEditGWEnvironment.form.info.edit.successful": "Gateway Environment edited successfully",
   "GatewayEnvironments.AddEditGWEnvironment.form.name": "Name",
